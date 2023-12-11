@@ -2,11 +2,14 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
+    google()
     jcenter()
 }
 
 dependencies {
-    compile "com.weidian.lib:hera:1.1.0"
+    implementation "com.simbest.android:sb_hera:1.0.0"
+    implementation 'androidx.core:core:1.2.0'
+    implementation 'com.google.android.material:material:1.0.0-alpha1'
 }
 
 android {

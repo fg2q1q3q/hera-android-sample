@@ -2,38 +2,36 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:4.2.0'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     }
 }
 
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
-subprojects {
+allprojects {
     repositories {
+        maven { url "http://10.87.57.26:8082/nexus/repository/releases/"}//内网仓库
         mavenCentral()
+        google()
         jcenter()
     }
-
+}
+subprojects {
     ext {
-        compileSdkVersion = 25
-        buildToolsVersion = "25.0.3"
-        minSdkVersion = 17
-        targetSdkVersion = 22
-        supportLibVersion = "25.3.1"
+        compileSdkVersion = 29
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 21
+        targetSdkVersion = 28
     }
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
-        sourceCompatibility = 1.7
-        targetCompatibility = 1.7
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
     tasks.withType(Javadoc) {
